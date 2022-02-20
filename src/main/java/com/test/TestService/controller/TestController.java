@@ -12,6 +12,7 @@ public class TestController {
 	@GetMapping("/servertest")
 	public ResponseEntity<String> testApi(){
 		
+		
 		 return new ResponseEntity<>("Server is up!!!", HttpStatus.OK);
 	}
 }
