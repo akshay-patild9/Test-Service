@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 	
-	//Hi This pushed with sts git GUI :)
-
 	@GetMapping("/servertest")
 	public ResponseEntity<String> testApi(){
 		 return new ResponseEntity<>("Server is up!!!", HttpStatus.OK);
