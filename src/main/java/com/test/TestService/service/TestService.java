@@ -12,12 +12,33 @@ public class TestService {
 	@Autowired
 	TestRepository repository;
 
-	public Country getCountryName() {
-		
-		
-		//return repository.findByCode("IND");
-		return repository.findByName("INDIA");
+	public Country getCountryCode(String code) {
+
+		return repository.findByCode(code);
+		//return repository.findByName("INDIA");
 		
 	}
+
+	public Country addCountry(Country country) {
+		
+		return repository.save(country);
+	}
+
+	public Country updateCountry(Country country) {
+		
+		Country oldCountry = getCountryCode(country.getCode());
+		oldCountry.setName(country.getName());
+		repository.save(oldCountry);
+		return oldCountry;
+	}
+
+	public void deleteCountry(String code) {
+
+		Country oldCountry = getCountryCode(code);
+		repository.delete(oldCountry);;
+	}
+
+	
+
 
 }
